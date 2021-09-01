@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.forms import widgets
 from django.utils.encoding import force_text
+from django.utils.html import format_html
 from django.utils.translation import ugettext as _
 
 from cms.utils.i18n import get_current_language
@@ -129,7 +130,7 @@ class AllTranslationsMixin(object):
                 title=title,
             )
             langs.append(link)
-        return ''.join(langs)
+        return format_html(''.join(langs))
     all_translations.short_description = 'Translations'
     all_translations.allow_tags = True
 
